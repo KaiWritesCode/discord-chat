@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components{
+
+  .sidebar-icon {
+    @apply relative flex items-center justify-center
+     h-12 w-12 mt-2 mb-2 mx-auto shadow-lg
+     bg-gray-800 text-green-500 hover:bg-green-600
+     hover:text-white rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear
+     cursor-pointer;
+  }
+
+  .sidebar-tooltip {
+    @apply absolute w-auto p-2 m-2 min-w-max left-14
+    rounded-md shadow-md text-white bg-gray-900 
+    text-xs font-bold transition-all duration-100 scale-0; 
+  }
+
+
+
+  .channel-header {
+    @apply text-lg text-gray-500 mb-4 hover:text-gray-400 cursor-pointer pl-2;
+  }
+
+  .channel-subheader {
+  @apply hover:bg-gray-600 pl-6 h-10 cursor-pointer flex items-center;
+
+  }
+
+  .channels-wrapper {
+    @apply bg-[#2F3037] text-gray-100 h-screen w-52 ;
+  }
+
+  .box {
+    @apply bg-white w-[400px] rounded-sm my-0 mx-auto p-8;
+  }
+  .btn { 
+    @apply text-center 
+    bg-green-600  w-[150px] p-3 px-0 text-white rounded-sm border-[#56b37c] border border-solid
+    m-3 ml-0 font-bold hover:bg-green-700 ease-in-out duration-300 cursor-pointer;
+  }
+  .btn2{
+    @apply text-center 
+    bg-[#3370ff] w-[150px] p-3 px-0 text-white rounded-sm border-blue-500 border border-solid
+    m-3 ml-0 font-bold hover:bg-blue-700 ease-in-out duration-300 cursor-pointer
+  }
+  .guest-btn, login-with-google-btn{
+    @apply shadow-sm
+  }
+  .guest-btn:hover, .login-with-google-btn:hover {
+   @apply shadow-sm shadow-[#b9b9b98f];
+  }
+  .login-with-google-btn {
+    @apply ease-in duration-300 py-3 pr-7 pl-14 rounded-sm 
+    text-[#757575] 
+  }
+  .pfp {
+    @apply w-[100px]
+    rounded-full
+    my-4 mx-6 
+  }
+  .delete-btn {
+   @apply hidden
+  }
+  
+  .chatbox:hover .delete-btn {
+  @apply block
+  }
+  .chatbox:hover {
+    @apply bg-[#3b3d42]
+  }
+ 
+  .chatbox:hover .colon-btn {
+    @apply block
+  }
+
+  .colon-item-btn {
+    @apply ml-3 bg-gray-600 px-2 py-1 
+  }
+
+.pfp.active {
+   @apply shadow-profileShadow
+  }
+.login-wrapper { 
+  @apply font-opensans 
+  w-full overflow-hidden
+  mt-16
+  flex justify-center align-middle 
+}
+.custom-input {
+@apply w-full px-3 py-3 mx-0 my-3 inline-block border border-gray-200 box-border
+}
+}
