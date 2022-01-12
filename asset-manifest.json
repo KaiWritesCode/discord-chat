@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/almost-discord/static/css/main.4c813d89.css",
-    "main.js": "/almost-discord/static/js/main.5ed28a33.js",
+    "main.js": "/almost-discord/static/js/main.ffdef6d9.js",
     "static/media/revicons.eot": "/almost-discord/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/almost-discord/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/almost-discord/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/almost-discord/index.html",
     "main.4c813d89.css.map": "/almost-discord/static/css/main.4c813d89.css.map",
-    "main.5ed28a33.js.map": "/almost-discord/static/js/main.5ed28a33.js.map"
+    "main.ffdef6d9.js.map": "/almost-discord/static/js/main.ffdef6d9.js.map"
   },
   "entrypoints": [
     "static/css/main.4c813d89.css",
-    "static/js/main.5ed28a33.js"
+    "static/js/main.ffdef6d9.js"
   ]
 }
