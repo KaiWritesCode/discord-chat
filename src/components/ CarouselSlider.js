@@ -2,23 +2,21 @@ import React, { useState, useEffect } from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-export default function CarouselSlider({ }) {
+export default function CarouselSlider() {
 
-    const [activeImage, setActiveImage] = useState()
-    const [imageIndex, setImageIndex] = useState(0)
     const [colIndex, setColIndex] = useState(0)
-    const [indexes, setIndexes] = useState({
-        image: 0,
-        col: 0,
-    })
 
 
 
-    const pfpCollection = [['/imgs/bayc.png', '/imgs/bayc3.png', '/imgs/bayc4.png', '/imgs/bayc5.png', '/imgs/bayc6.png', '/imgs/bayc7.png',],
-    ['/imgs/doodles.png', '/imgs/doodles2.png', '/imgs/doodles3.png', '/imgs/doodles4.png', '/imgs/doodles5.png', '/imgs/doodles6.png',],
-    ['imgs/cc.png', 'imgs/cc2.png', 'imgs/cc3.png', 'imgs/cc4.png', 'imgs/cc5.png', 'imgs/cc6.png',],
-    ['imgs/cx.jpeg', 'imgs/cx2.jpeg', 'imgs/cx3.png', 'imgs/cx4.png', 'imgs/cx5.png', 'imgs/cx6.png',]
+    const pfpCollection = [['/almost-discord/imgs/bayc.png', '/almost-discord/imgs/bayc3.png', '/almost-discord/imgs/bayc4.png', '/almost-discord/imgs/bayc5.png', '/almost-discord/imgs/bayc6.png', '/almost-discord/imgs/bayc7.png',],
+    ['/almost-discord/imgs/doodles.png', '/almost-discord/imgs/doodles2.png', '/almost-discord/imgs/doodles3.png', '/almost-discord/imgs/doodles4.png', '/almost-discord/imgs/doodles5.png', '/almost-discord/imgs/doodles6.png',],
+    ['/almost-discord/imgs/cc.png', '/almost-discord/imgs/cc2.png', '/almost-discord/imgs/cc3.png', '/almost-discord/imgs/cc4.png', '/almost-discord/imgs/cc5.png', '/almost-discord/imgs/cc6.png',],
+    ['/almost-discord/imgs/cx.jpeg', '/almost-discord/imgs/cx2.jpeg', '/almost-discord/imgs/cx3.png', '/almost-discord/imgs/cx4.png', '/almost-discord/imgs/cx5.png', '/almost-discord/imgs/cx6.png',]
     ]
+
+    const [activeImage, setActiveImage] = useState(pfpCollection[0][0])
+
+
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 0 },
@@ -27,19 +25,13 @@ export default function CarouselSlider({ }) {
     };
 
 
-
-
     const colClick = (index) => {
         setColIndex(index)
     }
 
     useEffect(() => {
-        setIndexes({ image: imageIndex, col: colIndex })
-        setIndexes((prevState) => {
-            const newIndexes = { ...prevState, image: imageIndex, col: colIndex }
-            localStorage.setItem("pfp", pfpCollection[newIndexes.col][newIndexes.image])
-        })
-    }, [imageIndex, colIndex])
+        localStorage.setItem("pfp", activeImage)
+    }, [activeImage])
 
     const pfpClick = (index) => {
         setActiveImage(pfpCollection[colIndex][index])

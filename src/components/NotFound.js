@@ -1,6 +1,7 @@
 
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function NotFound() {
     return (
@@ -17,10 +18,12 @@ export default function NotFound() {
                         Page not found
                     </span>
                 </div>
-                <button className="text-center bg-blue-500  p-3 px-0 text-white rounded-sm 
-            font-bold hover:bg-blue-700 ease-in-out duration-300 cursor-pointer my-3">
-                    <a className='text-white-100 decoration-none px-1' href="/almost-discord/#/">Back to Homepage</a>
-                </button>
+                <Link to='/'>
+                    <button className="text-center bg-blue-500  p-3 px-0 text-white rounded-sm 
+                    font-bold hover:bg-blue-700 ease-in-out duration-300 cursor-pointer my-3 px-3 w-full">
+                        Back to Homepage
+                    </button>
+                </Link>
             </div>
         </div>
     )

@@ -2,23 +2,14 @@
   text-align: center;
 }
 
-
 body, html {
   background-color: #37393E;
   height: 100%;
 }
 
-.home {
-  overflow: hidden;
-  height: 100vh;
-  position: relative;
-}
 
 .disabledBtn:hover {
   cursor: not-allowed;
-}
-#chev-icon {
-  color: rgb(167, 167, 167);
 }
 
 .login-with-google-btn {
@@ -33,23 +24,16 @@ body, html {
   max-width: 100%;
 }
 
-.chat {
-  height: 85vh;
-}
-
-
-.search {
-  width: 100%;
-}
-
 @media screen and (max-width: 600px) {
   .channels-wrapper {
     display: none;
   }
+  .header {
+    padding: 1.25em 2em;
+  }
+  .sidebar-wrapper {
+    display: none;
+  }
 }
-@media screen and (max-width: 400px) {
-.sidebar-wrapper {
-  display: none;
-}
-}
+
 

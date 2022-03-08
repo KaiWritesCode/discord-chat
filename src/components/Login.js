@@ -103,7 +103,7 @@ export default function NewUser({ setIsAuth, isAuth }) {
     }
 
     localStorage.isAuth ? history.push("/")
-        : window.location.pathname = '/login'
+        : history.push("/login")
 
 
     const finishAccount = () => {
@@ -141,7 +141,7 @@ export default function NewUser({ setIsAuth, isAuth }) {
                     <hr className="w-full" />
                 </div>
                 <div className='flex flex-col m-2'>
-                    <button className='login-with-google-btn border border-gray-300 rounded-md mt-4 text-gray-500 p-3 text-sm' onClick={signInWithGoogle}>Sign in with Google</button>
+                    <button className='login-with-google-btn border border-gray-300 rounded-md mt-4 text-gray-500 p-3 text-sm' onClick={signInWithGoogle}>Sign in with Google (unavaliable)</button>
                     <button className='guest-btn border border-gray-300 rounded-md mt-4 text-gray-500 p-3 text-sm ' onClick={signInGuest}>Continue as Guest</button>
                 </div>
 
