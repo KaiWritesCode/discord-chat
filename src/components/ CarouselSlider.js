@@ -8,10 +8,10 @@ export default function CarouselSlider() {
 
 
 
-    const pfpCollection = [['/almost-discord/imgs/bayc.png', '/almost-discord/imgs/bayc3.png', '/almost-discord/imgs/bayc4.png', '/almost-discord/imgs/bayc5.png', '/almost-discord/imgs/bayc6.png', '/almost-discord/imgs/bayc7.png',],
-    ['/almost-discord/imgs/doodles.png', '/almost-discord/imgs/doodles2.png', '/almost-discord/imgs/doodles3.png', '/almost-discord/imgs/doodles4.png', '/almost-discord/imgs/doodles5.png', '/almost-discord/imgs/doodles6.png',],
-    ['/almost-discord/imgs/cc.png', '/almost-discord/imgs/cc2.png', '/almost-discord/imgs/cc3.png', '/almost-discord/imgs/cc4.png', '/almost-discord/imgs/cc5.png', '/almost-discord/imgs/cc6.png',],
-    ['/almost-discord/imgs/cx.jpeg', '/almost-discord/imgs/cx2.jpeg', '/almost-discord/imgs/cx3.png', '/almost-discord/imgs/cx4.png', '/almost-discord/imgs/cx5.png', '/almost-discord/imgs/cx6.png',]
+    const pfpCollection = [['/discord-chat/imgs/bayc.png', '/discord-chat/imgs/bayc3.png', '/discord-chat/imgs/bayc4.png', '/discord-chat/imgs/bayc5.png', '/discord-chat/imgs/bayc6.png', '/discord-chat/imgs/bayc7.png',],
+    ['/discord-chat/imgs/doodles.png', '/discord-chat/imgs/doodles2.png', '/discord-chat/imgs/doodles3.png', '/discord-chat/imgs/doodles4.png', '/discord-chat/imgs/doodles5.png', '/discord-chat/imgs/doodles6.png',],
+    ['/discord-chat/imgs/cc.png', '/discord-chat/imgs/cc2.png', '/discord-chat/imgs/cc3.png', '/discord-chat/imgs/cc4.png', '/discord-chat/imgs/cc5.png', '/discord-chat/imgs/cc6.png',],
+    ['/discord-chat/imgs/cx.jpeg', '/discord-chat/imgs/cx2.jpeg', '/discord-chat/imgs/cx3.png', '/discord-chat/imgs/cx4.png', '/discord-chat/imgs/cx5.png', '/discord-chat/imgs/cx6.png',]
     ]
 
     const [activeImage, setActiveImage] = useState(pfpCollection[0][0])

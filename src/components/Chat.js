@@ -42,7 +42,7 @@ export default function Chat({ setIsAuth, isAuth }) {
             await addDoc(usersCollectionRef, {
                 message: newMessage,
                 createdAt: serverTimestamp(),
-                user: { name: 'Guest', id: auth.currentUser.uid, picture: "/almost-discord/imgs/guest.png" }
+                user: { name: 'Guest', id: auth.currentUser.uid, picture: "/discord-chat/imgs/guest.png" }
             })
         }
         else if (provider.providerId === 'password') {
@@ -145,7 +145,7 @@ export default function Chat({ setIsAuth, isAuth }) {
                 <div className="h-[85vh] overflow-y-auto block">
 
                     <div className="chatbox bg-[#37393E] text-gray-100 p-4">
-                        <div className="profile flex items-center"><img src="/almost-discord/imgs/bayc2.jpeg" className="w-12 rounded-full" alt="" />
+                        <div className="profile flex items-center"><img src="/discord-chat/imgs/bayc2.jpeg" className="w-12 rounded-full" alt="" />
                             <span className="ml-1 text-yellow-300">Dyno</span>
                             <span className="text-gray-500 ml-2">Today at 9:48 AM</span>
                         </div>
