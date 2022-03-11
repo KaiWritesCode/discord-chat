@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/almost-discord/static/css/main.d22bdaa3.css",
-    "main.js": "/almost-discord/static/js/main.c8c27337.js",
-    "static/media/revicons.eot": "/almost-discord/static/media/revicons.a77de540a38981833f9e.eot",
-    "static/media/revicons.ttf": "/almost-discord/static/media/revicons.57fd05d4ae650374c8de.ttf",
-    "static/media/revicons.woff": "/almost-discord/static/media/revicons.e8746a624ed098489406.woff",
-    "index.html": "/almost-discord/index.html",
-    "main.d22bdaa3.css.map": "/almost-discord/static/css/main.d22bdaa3.css.map",
-    "main.c8c27337.js.map": "/almost-discord/static/js/main.c8c27337.js.map"
+    "main.css": "/discord-chat/static/css/main.9ec9d0df.css",
+    "main.js": "/discord-chat/static/js/main.c8c27337.js",
+    "static/media/revicons.eot": "/discord-chat/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/discord-chat/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/discord-chat/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/discord-chat/index.html",
+    "main.9ec9d0df.css.map": "/discord-chat/static/css/main.9ec9d0df.css.map",
+    "main.c8c27337.js.map": "/discord-chat/static/js/main.c8c27337.js.map"
   },
   "entrypoints": [
-    "static/css/main.d22bdaa3.css",
+    "static/css/main.9ec9d0df.css",
     "static/js/main.c8c27337.js"
   ]
 }
