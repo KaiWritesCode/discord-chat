@@ -1,7 +1,6 @@
 import React from 'react'
 import { BsPlus } from 'react-icons/bs'
 
-
 export const SideBar = () => {
     return (
         <div className="w-16 sidebar-wrapper">
