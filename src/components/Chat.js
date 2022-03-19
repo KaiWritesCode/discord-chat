@@ -9,7 +9,7 @@ import SideBar from './SideBar'
 
 
 
-export default function Chat({ setIsAuth, isAuth }) {
+export default function Chat({ setIsAuth }) {
     const [userCollection, setUserCollection] = useState([])
     const [newMessage, setNewMessage] = useState("")
     const [popup, setPopup] = useState(false)
