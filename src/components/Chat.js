@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { FaChevronCircleRight } from 'react-icons/fa'
+import { FaChevronCircleRight, FaBars } from 'react-icons/fa'
 import { db, auth } from '../firebase'
 import { Link } from 'react-router-dom'
 import { collection, addDoc, orderBy, onSnapshot, deleteDoc, query, serverTimestamp, doc } from 'firebase/firestore'
 import { signOut } from 'firebase/auth'
-
+import SideBar from './SideBar'
 
 
 
@@ -13,6 +13,7 @@ export default function Chat({ setIsAuth, isAuth }) {
     const [userCollection, setUserCollection] = useState([])
     const [newMessage, setNewMessage] = useState("")
     const [popup, setPopup] = useState(false)
+    const [open, setOpen] = useState(true)
 
     const usersCollectionRef = collection(db, "users")
     const messagesEndRef = useRef(null)
@@ -82,6 +83,14 @@ export default function Chat({ setIsAuth, isAuth }) {
         messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
     }
 
+    const openSidebar = () => {
+        setOpen(true)
+    }
+
+    const closeSidebar = () => {
+        setOpen(false)
+    }
+
     useEffect(() => {
         scrollToBottom()
     }, [newMessage])
@@ -124,65 +133,79 @@ export default function Chat({ setIsAuth, isAuth }) {
 
 
     return (
-        <div className="relative w-full" onClick={closePopup}>
-            <div className="flex flex-col">
-                <header className="bg-[#52545d] header text-gray-100 p-5 px-12 text-lg w-full h-11 flex items-center">
-                    <div>
-                        <span>#</span>
-                        <span>Main-Chat</span>
-                    </div>
-
-
-                    <div className="flex justify-around ml-auto">
-                        <Link to='/login'>
-                            {localStorage.isAuth ? <span onClick={logout}>Log out</span> : <span>Log In</span>}
-                        </Link>
-
-                    </div>
-                </header>
-
-
-                <div className="h-[85vh] overflow-y-auto block">
-
-                    <div className="chatbox bg-[#37393E] text-gray-100 p-4">
-                        <div className="profile flex items-center"><img src="/discord-chat/imgs/bayc2.jpeg" className="w-12 rounded-full" alt="" />
-                            <span className="ml-1 text-yellow-300">Dyno</span>
-                            <span className="text-gray-500 ml-2">Today at 9:48 AM</span>
+        <div className='flex home overflow-x-hidden'>
+            <SideBar open={open} />
+            <div className="relative w-full" onClick={closePopup}>
+                <div className="flex flex-col">
+                    <header className="bg-[#52545d] header text-gray-100 p-5 px-12 text-lg w-full h-11 flex items-center">
+                        <div
+                            onClick={openSidebar}
+                            className={`hamburger  mr-3 ml-[-10px] ${open ? 'hidden' : 'active'} `} >
+                            <FaBars />
                         </div>
-                        <div className="text px-12">
-                            Hello people seeing this project, I am the mod Dyno for this "Discord Server".
-                            Please login or create an account to start chatting.
+                        <div
+                            onClick={closeSidebar}
+                            className={`close-menu  mr-3 ml-[-10px] ${open ? 'active' : 'hidden'}`} >
+                            X
                         </div>
+                        <div>
+                            <span>#</span>
+                            <span>Main-Chat</span>
+                        </div>
+
+
+                        <div className="flex justify-around ml-auto">
+                            <Link to='/login'>
+                                {localStorage.isAuth ? <span onClick={logout}>Log out</span> : <span>Log In</span>}
+                            </Link>
+
+                        </div>
+                    </header>
+
+
+                    <div onClick={closeSidebar}
+                        className="h-[85vh] overflow-y-auto block">
+
+                        <div className="chatbox bg-[#37393E] text-gray-100 p-4">
+                            <div className="profile flex items-center"><img src="/discord-chat/imgs/bayc2.jpeg" className="w-12 rounded-full" alt="" />
+                                <span className="ml-1 text-yellow-300">Dyno</span>
+                                <span className="text-gray-500 ml-2">Today at 9:48 AM</span>
+                            </div>
+                            <div className="text px-12">
+                                Hello people seeing this project, I am the mod Dyno for this "Discord Server".
+                                Please login or create an account to start chatting.
+                            </div>
+                        </div>
+
+
+                        {chatBox}
+                        <div ref={messagesEndRef} ></div>
                     </div>
 
 
-                    {chatBox}
-                    <div ref={messagesEndRef} ></div>
-                </div>
 
-
-
-                <div className="w-full flex overflow-y-auto absolute bottom-0 px-6 bg-[#37393E]">
-                    <form className='w-full flex' action="">
-                        <input
-                            disabled={localStorage.isAuth ? false : true}
-                            type="text"
-                            id='chat-input'
-                            className={`custom-input bg-[#3a3f45] rounded-md h-10 focus:outline-none p-4 text-gray-100 ${!localStorage.isAuth ? 'disabledBtn' : null}`}
-                            placeholder="start chatting.."
-                            onChange={(e) => setNewMessage(e.target.value)}
-                            value={newMessage}
-                        />
-                        <button
-                            id='chev-icon' className="mx-3
+                    <div className="w-full flex overflow-y-auto absolute bottom-0 px-6 bg-[#37393E]">
+                        <form className='w-full flex' action="">
+                            <input
+                                disabled={localStorage.isAuth ? false : true}
+                                type="text"
+                                id='chat-input'
+                                className={`custom-input bg-[#3a3f45] rounded-md h-10 focus:outline-none p-4 text-gray-100 ${!localStorage.isAuth ? 'disabledBtn' : null}`}
+                                placeholder="start chatting.."
+                                onChange={(e) => setNewMessage(e.target.value)}
+                                value={newMessage}
+                            />
+                            <button
+                                id='chev-icon' className="mx-3
                             hover:text-gray-200 transition-all duration-50 ease-out"
-                            onClick={sendMessage}
-                        >
-                            <FaChevronCircleRight color="white" size="34" /></button>
-                    </form>
+                                onClick={sendMessage}
+                            >
+                                <FaChevronCircleRight color="white" size="34" /></button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div className='h-[64px]'></div>
-        </div >
+                <div className='h-[64px]'></div>
+            </div >
+        </div>
     )
 }

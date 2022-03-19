@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import Channels from './components/Channels'
 import Chat from './components/Chat'
-import { SideBar } from './components/SideBar'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import NotFound from "./components/NotFound"
 
@@ -18,8 +16,6 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <div className="flex home">
-              <SideBar />
-              <Channels />
               <Chat setIsAuth={setIsAuth} isAuth={isAuth} />
             </div>
           </Route>
