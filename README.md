@@ -1,10 +1,16 @@
 
-# Discord Chat
+<div style="display: flex; justify-content: center">
+  # Discord Chat
 
-A chatapp inspired by Discord. Meet people from all across the globe
-with this realtime chat. Created with a secure firebase backend and Tailwind css.
+  <div>
+  A chatapp inspired by Discord. Meet people from all across the globe
+  with this realtime chat. Created with a secure firebase backend and Tailwind css. </div>
 
-![discord-iphone](https://user-images.githubusercontent.com/84258692/159142002-d265326f-6737-408f-8c3a-5b5d14fceda4.png)
+  <div style="display: flex; justify-content: center">
+  <img src="https://user-images.githubusercontent.com/84258692/159142002-d265326f-6737-408f-8c3a-5b5d14fceda4.png" width="600px" alt="discord-iphone"/>
+  </div>
+  
+</div>
 
 See it here -> https://therealkai.github.io/discord-chat/
 
