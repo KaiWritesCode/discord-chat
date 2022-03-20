@@ -204,7 +204,7 @@ export default function Chat({ setIsAuth }) {
                         </form>
                     </div>
                 </div>
-                <div className='h-[64px]'></div>
+                <div className={`${open ? 'h-[0]]' : 'h-[64px]'}`}></div>
             </div >
         </div>
     )
