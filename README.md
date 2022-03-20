@@ -1,5 +1,5 @@
 
-<div style="display: flex; justify-content: center">
+
   # Discord Chat
 
   <div>
