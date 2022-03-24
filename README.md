@@ -34,7 +34,7 @@ See it here -> https://therealkai.github.io/discord-chat/
 
 ## FAQ
 
-#### Is this meant for phones or computers?
+#### Is this meant for phones or desktop?
 
 Both! The app is responsive meaning you can use it on any size computer, or on the go with your phone.
 
