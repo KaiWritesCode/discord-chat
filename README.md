@@ -9,7 +9,7 @@
 
   A chatapp inspired by Discord. Meet people from all across the globe
   with this realtime chat. Created with a secure firebase backend and Tailwind css.
-See it here -> https://therealkai.github.io/discord-chat/
+See it here -> https://kaiwritescode.github.io/discord-chat/
 
     
 
