@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/discord-chat/static/css/main.9e6bb574.css",
-    "main.js": "/discord-chat/static/js/main.0065ac8f.js",
+    "main.css": "/discord-chat/static/css/main.1f68a86a.css",
+    "main.js": "/discord-chat/static/js/main.090e1ef9.js",
     "static/media/revicons.eot": "/discord-chat/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/discord-chat/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/discord-chat/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/discord-chat/index.html",
-    "main.9e6bb574.css.map": "/discord-chat/static/css/main.9e6bb574.css.map",
-    "main.0065ac8f.js.map": "/discord-chat/static/js/main.0065ac8f.js.map"
+    "main.1f68a86a.css.map": "/discord-chat/static/css/main.1f68a86a.css.map",
+    "main.090e1ef9.js.map": "/discord-chat/static/js/main.090e1ef9.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e6bb574.css",
-    "static/js/main.0065ac8f.js"
+    "static/css/main.1f68a86a.css",
+    "static/js/main.090e1ef9.js"
   ]
 }
