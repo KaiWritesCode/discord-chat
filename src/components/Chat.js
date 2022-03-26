@@ -5,15 +5,17 @@ import { Link } from 'react-router-dom'
 import { collection, addDoc, orderBy, onSnapshot, deleteDoc, query, serverTimestamp, doc } from 'firebase/firestore'
 import { signOut } from 'firebase/auth'
 import SideBar from './SideBar'
-
+import { useHistory } from 'react-router-dom'
 
 
 
 export default function Chat({ setIsAuth }) {
+    const history = useHistory()
+
     const [userCollection, setUserCollection] = useState([])
     const [newMessage, setNewMessage] = useState("")
-    const [popup, setPopup] = useState(false)
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
+    const [deleteModal, setDeleteModal] = useState(false)
 
     const usersCollectionRef = collection(db, "users")
     const messagesEndRef = useRef(null)
@@ -71,14 +73,6 @@ export default function Chat({ setIsAuth }) {
         await deleteDoc(messageDoc)
     }
 
-    const popupModal = () => {
-        setPopup(true)
-    }
-    const closePopup = () => {
-        if (popup) {
-            setPopup(false)
-        }
-    }
     const scrollToBottom = () => {
         messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
     }
@@ -89,6 +83,11 @@ export default function Chat({ setIsAuth }) {
 
     const closeSidebar = () => {
         setOpen(false)
+    }
+
+
+    const popupModal = () => {
+        setDeleteModal(true)
     }
 
     useEffect(() => {
@@ -110,15 +109,15 @@ export default function Chat({ setIsAuth }) {
                             <span style={{ display: item.user.name === 'Guest' ? 'inline' : 'none' }}> - {item.id.slice(0, 2)}</span>
                         </span>}
                         <span className="text-gray-500 ml-2">{standardTime}</span>
-                        {/* {
+                        {
                             localStorage.isAuth && item.user.id === auth.currentUser.uid &&
                             <button onClick={popupModal} className='hidden text-xl text-gray-100 ml-2 colon-btn'> ⫶</button>
                         }
-                        <div className={`popup-div ${popup ? 'inline' : 'hidden'}`}>
+                        <div className={`popup-div ${deleteModal ? 'inline' : 'hidden'}`}>
                             {localStorage.isAuth && item.user.id === auth.currentUser.uid &&
                                 <button className='colon-item-btn text-red-600 ' onClick={() => deleteMessage(item.id)}>Delete</button>
                             }
-                        </div> */}
+                        </div>
 
                     </div>
                     <div className="text px-12">
@@ -135,17 +134,17 @@ export default function Chat({ setIsAuth }) {
     return (
         <div className='flex home overflow-x-hidden'>
             <SideBar open={open} />
-            <div className="relative w-full" onClick={closePopup}>
+            <div className="relative w-full">
                 <div className="flex flex-col">
                     <header className="bg-[#52545d] header text-gray-100 p-5 px-12 text-lg w-full h-11 flex items-center">
                         <div
                             onClick={openSidebar}
-                            className={`hamburger  mr-3 ml-[-10px] ${open ? 'hidden' : 'active'} `} >
+                            className={`hamburger  mr-3 ml-[-10px] ${!open ? 'active' : 'hidden'} `} >
                             <FaBars />
                         </div>
                         <div
                             onClick={closeSidebar}
-                            className={`close-menu  mr-3 ml-[-10px] ${open ? 'active' : 'hidden'}`} >
+                            className={`close-menu  mr-3 ml-[-10px] ${!open ? 'hidden' : 'active'}`} >
                             X
                         </div>
                         <div>
@@ -204,7 +203,7 @@ export default function Chat({ setIsAuth }) {
                         </form>
                     </div>
                 </div>
-                <div className={`${open ? 'h-[0]]' : 'h-[64px]'}`}></div>
+                <div className='h-[90px]'></div>
             </div >
         </div>
     )

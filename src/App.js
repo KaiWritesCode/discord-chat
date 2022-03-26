@@ -14,7 +14,7 @@ function App() {
     <>
       <Router>
         <Switch>
-          <Route path="/" exact>
+          <Route path="/chat" >
             <div className="flex home">
               <Chat setIsAuth={setIsAuth} isAuth={isAuth} />
             </div>
