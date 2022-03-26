@@ -18,6 +18,10 @@ export default function NewUser({ setIsAuth, isAuth }) {
     const [createdEmail, setCreatedEmail] = useState("")
     const [createdPassword, setCreatedPassword] = useState("")
     const [createdName, setCreatedName] = useState("")
+    const [authenticated, setAuthenicated] = useState(false)
+
+
+
 
     const [profile, setProfile] = useState({
         name: '',
@@ -28,7 +32,6 @@ export default function NewUser({ setIsAuth, isAuth }) {
 
     const auth = getAuth()
 
-    const guestAuth = getAuth();
     const usersCollectionRef = collection(db, "users")
 
 
@@ -42,10 +45,10 @@ export default function NewUser({ setIsAuth, isAuth }) {
 
 
     const signInGuest = () => {
-        signInAnonymously(guestAuth)
+        signInAnonymously(auth)
             .then((result) => {
                 localStorage.setItem("isAuth", true)
-                setIsAuth(true)
+                setAuthenicated(true)
             })
             .catch((error) => {
                 setErrorMessage(error.message)
@@ -59,13 +62,12 @@ export default function NewUser({ setIsAuth, isAuth }) {
         signInWithPopup(auth, provider)
             .then((result) => {
                 localStorage.setItem("isAuth", true)
-                setIsAuth(true)
             }).catch((error) => {
                 setErrorMessage(`Error:${error.message}`)
             })
     }
 
-    const createAccount = async () => {
+    const createAccount = async (e) => {
         createUserWithEmailAndPassword(auth, createdEmail, createdPassword)
             .then((result) => {
                 const user = result.user
@@ -77,7 +79,7 @@ export default function NewUser({ setIsAuth, isAuth }) {
     }
 
 
-    const loginUser = () => {
+    const loginUser = (e) => {
         signInWithEmailAndPassword(auth, createdEmail, createdPassword)
             .then((result) => {
                 const user = result.user
@@ -93,7 +95,6 @@ export default function NewUser({ setIsAuth, isAuth }) {
                         })
 
                         localStorage.setItem("isAuth", true)
-                        setIsAuth(true)
                     }
                 })
             })
@@ -102,15 +103,19 @@ export default function NewUser({ setIsAuth, isAuth }) {
             })
     }
 
-    localStorage.isAuth ? history.push("/")
-        : history.push("/login")
+    useEffect(() => {
+        if (localStorage.isAuth || authenticated) {
+            history.push("/")
+        }
+    }, [localStorage.isAuth])
 
-
-    const finishAccount = () => {
+    const finishAccount = (e) => {
+        e.preventDefault()
         localStorage.setItem("name", createdName)
         localStorage.setItem("isAuth", true)
-        setIsAuth(true)
     }
+
+
 
 
     const login = (
@@ -126,7 +131,7 @@ export default function NewUser({ setIsAuth, isAuth }) {
 
                     <input placeholder='Password..'
                         onChange={e => setCreatedPassword(e.target.value)} required className='custom-input'
-                        type="password" name="password" value={createdPassword} />
+                        type="password" name="password" autoComplete='current-password' value={createdPassword} />
 
                     <div className='flex justify-center' >
                         <div onClick={loginUser} className="btn">Login</div>
