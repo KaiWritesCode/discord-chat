@@ -30,7 +30,8 @@ See it here -> https://kaiwritescode.github.io/discord-chat/
 
 ### Simply create an account with an email and password, enter your name, choose a profile picture, then start chatting!
 
-![discord](https://user-images.githubusercontent.com/84258692/159142136-5f363d40-0a39-4a43-b0c2-22c3536266b8.gif)
+![discord](https://user-images.githubusercontent.com/84258692/162027441-497bcdb9-2e5b-4e57-93dc-2a9d023c96d3.gif)
+
 
 ## FAQ
 
