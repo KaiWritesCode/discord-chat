@@ -18,7 +18,7 @@ export default function NewUser({ setIsAuth, isAuth }) {
     const [createdEmail, setCreatedEmail] = useState("")
     const [createdPassword, setCreatedPassword] = useState("")
     const [createdName, setCreatedName] = useState("")
-    const [authenticated, setAuthenicated] = useState(false)
+    const [authenticated, setAuthenticated] = useState(false)
 
 
 
@@ -48,7 +48,7 @@ export default function NewUser({ setIsAuth, isAuth }) {
         signInAnonymously(auth)
             .then((result) => {
                 localStorage.setItem("isAuth", true)
-                setAuthenicated(true)
+                setAuthenticated(true)
             })
             .catch((error) => {
                 setErrorMessage(error.message)
@@ -62,6 +62,7 @@ export default function NewUser({ setIsAuth, isAuth }) {
         signInWithPopup(auth, provider)
             .then((result) => {
                 localStorage.setItem("isAuth", true)
+                setAuthenticated(true)
             }).catch((error) => {
                 setErrorMessage(`Error:${error.message}`)
             })
@@ -95,6 +96,8 @@ export default function NewUser({ setIsAuth, isAuth }) {
                         })
 
                         localStorage.setItem("isAuth", true)
+                        setAuthenticated(true)
+
                     }
                 })
             })
@@ -107,12 +110,13 @@ export default function NewUser({ setIsAuth, isAuth }) {
         if (localStorage.isAuth || authenticated) {
             history.push("/")
         }
-    }, [localStorage.isAuth])
+    }, [localStorage.isAuth, setAuthenticated])
 
     const finishAccount = (e) => {
         e.preventDefault()
         localStorage.setItem("name", createdName)
         localStorage.setItem("isAuth", true)
+        history.push("/")
     }
 
 
